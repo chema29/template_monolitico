@@ -1,7 +1,7 @@
 <?php
-namespace Jp\Backendmbe\controllers;
+namespace Jp\Backend\controllers;
 
-use Jp\Backendmbe\core\Controller;
+use Jp\Backend\core\Controller;
 // login user y password generar token y devolverlo
 class LoginController extends Controller{
     

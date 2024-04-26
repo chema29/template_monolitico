@@ -6,6 +6,6 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Jp\\Backendmbe\\' => array($baseDir . '/src'),
+    'Jp\\Backend\\' => array($baseDir . '/src'),
     'Edesk\\' => array($vendorDir . '/edesk/edesk-core/src'),
 );

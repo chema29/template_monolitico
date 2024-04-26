@@ -6,7 +6,7 @@
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'reference' => NULL,
-        'name' => 'jp/backendmbe',
+        'name' => 'jp/Backend',
         'dev' => true,
     ),
     'versions' => array(
@@ -21,7 +21,7 @@
             'reference' => '0f714140214906ead650695341f679f92367059f',
             'dev_requirement' => false,
         ),
-        'jp/backendmbe' => array(
+        'jp/Backend' => array(
             'pretty_version' => '1.0.0+no-version-set',
             'version' => '1.0.0.0',
             'type' => 'project',

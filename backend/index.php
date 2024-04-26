@@ -1,6 +1,6 @@
 <?php
-use Jp\Backendmbe\core\App;
-use Jp\Backendmbe\middleware\CorsMiddleware;
+use Jp\Backend\core\App;
+use Jp\Backend\middleware\CorsMiddleware;
 
 
 // mostrar errores

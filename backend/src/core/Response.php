@@ -1,5 +1,5 @@
 <?php
-namespace Jp\Backendmbe\core;
+namespace Jp\Backend\core;
 // class Response se encarga de manejar los errores de la aplicación
 class Response {
 

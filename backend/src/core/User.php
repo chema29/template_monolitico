@@ -1,6 +1,6 @@
 <?php
 /* Almacenara los datos del usuario para tenerlos disponibles en el model */
-namespace Jp\Backendmbe\core;
+namespace Jp\Backend\core;
 
 class User {
     private $id;

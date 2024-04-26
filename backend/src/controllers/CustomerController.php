@@ -1,8 +1,8 @@
 <?php
 
-namespace Jp\Backendmbe\controllers;
+namespace Jp\Backend\controllers;
 
-use Jp\Backendmbe\core\Controller;
+use Jp\Backend\core\Controller;
 // controller de clientes
 
 class CustomerController extends Controller{

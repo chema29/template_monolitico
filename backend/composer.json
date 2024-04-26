@@ -1,5 +1,5 @@
 {
-    "name": "jp/backendmbe",
+    "name": "jp/backend",
     "description": "se encarga de manejar todo el back de la aplicacion",
     "type": "project",
     "require": {
@@ -7,7 +7,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Jp\\Backendmbe\\": "src/"
+            "Jp\\Backend\\": "src/"
         }
     },
     "authors": [

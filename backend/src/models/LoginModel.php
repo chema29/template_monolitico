@@ -1,7 +1,7 @@
 <?php
-namespace Jp\Backendmbe\models;
+namespace Jp\Backend\models;
 
-use Jp\Backendmbe\core\Model;
+use Jp\Backend\core\Model;
 // model de login 
 class LoginModel extends Model {
 

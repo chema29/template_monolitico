@@ -1,7 +1,7 @@
 <?php
-namespace Jp\Backendmbe\core;
+namespace Jp\Backend\core;
 
-use Jp\Backendmbe\middleware\AuthMiddleware;
+use Jp\Backend\middleware\AuthMiddleware;
 // App class se encarga de manejar las rutas y cargar los controladores
 
 class App {
@@ -19,7 +19,7 @@ class App {
         // la primera letra de la url se convierte a mayúscula
         $url[0] = ucfirst($url[0]);
         $controllerName = "{$url[0]}Controller";
-        $controllerClass =  "\\Jp\\Backendmbe\\controllers\\" . $controllerName;
+        $controllerClass =  "\\Jp\\Backend\\controllers\\" . $controllerName;
         // verifica si existe la clase
         //if (!file_exists("../controllers/{$controllerName}.php")) {
         if (!class_exists($controllerClass)) {

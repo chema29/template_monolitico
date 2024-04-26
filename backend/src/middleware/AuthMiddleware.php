@@ -1,8 +1,8 @@
 <?php
 // middleware/AuthMiddleware.php
-namespace Jp\Backendmbe\middleware;
+namespace Jp\Backend\middleware;
 
-use Jp\Backendmbe\core\Middleware;
+use Jp\Backend\core\Middleware;
 
 class AuthMiddleware extends Middleware{
     public function handle($request) {

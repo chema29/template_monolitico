@@ -1,5 +1,5 @@
 <?php
-namespace Jp\Backendmbe\core;
+namespace Jp\Backend\core;
 
 // class controller base
 class Controller{
@@ -14,7 +14,7 @@ class Controller{
     // model
     public function model($model) {
         // namespace
-        $model = "Jp\\Backendmbe\\models\\{$model}Model";
+        $model = "Jp\\Backend\\models\\{$model}Model";
         // validamos si existe
         if (!class_exists($model)) {
             return false;

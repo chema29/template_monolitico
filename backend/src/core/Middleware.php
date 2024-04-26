@@ -1,5 +1,5 @@
 <?php
-namespace Jp\Backendmbe\core; 
+namespace Jp\Backend\core; 
 
 use Edesk\dbQuery\MyQuery;
 
