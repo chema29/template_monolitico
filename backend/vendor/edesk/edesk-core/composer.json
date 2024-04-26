@@ -1,0 +1,26 @@
+{
+    "name": "edesk/edesk-core",
+    "description": "Archivos b\u0000sicos para conexi\u0000n a la base de dato, para la ejecuci\u0000n de querys, clases para trabajar con correo electr\u0000nicos de elasticemail, y funciones generales.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Edesk\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/",
+            "Edesk\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Jose Porras",
+            "email": "josemariaporras29@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}

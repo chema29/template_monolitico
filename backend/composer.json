@@ -1,0 +1,20 @@
+{
+    "name": "jp/backendmbe",
+    "description": "se encarga de manejar todo el back de la aplicacion",
+    "type": "project",
+    "require": {
+        "edesk/edesk-core": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jp\\Backendmbe\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "chema29",
+            "email": "39561684+chema29@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

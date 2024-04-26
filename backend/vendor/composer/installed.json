@@ -1,0 +1,50 @@
+{
+    "packages": [
+        {
+            "name": "edesk/edesk-core",
+            "version": "dev-master",
+            "version_normalized": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chema29/edeskLibrary.git",
+                "reference": "0f714140214906ead650695341f679f92367059f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chema29/edeskLibrary/zipball/0f714140214906ead650695341f679f92367059f",
+                "reference": "0f714140214906ead650695341f679f92367059f",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.5"
+            },
+            "time": "2024-02-16T05:01:43+00:00",
+            "default-branch": true,
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Edesk\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jose Porras",
+                    "email": "josemariaporras29@gmail.com"
+                }
+            ],
+            "description": "Archivos b\u0000sicos para conexi\u0000n a la base de dato, para la ejecuci\u0000n de querys, clases para trabajar con correo electr\u0000nicos de elasticemail, y funciones generales.",
+            "support": {
+                "issues": "https://github.com/chema29/edeskLibrary/issues",
+                "source": "https://github.com/chema29/edeskLibrary/tree/master"
+            },
+            "install-path": "../edesk/edesk-core"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}

@@ -1,0 +1,15 @@
+# Enable mod_rewrite
+RewriteEngine On
+CGIPassAuth On
+
+# no mostrar directorios
+Options -Indexes
+
+# Set the base directory
+RewriteBase /
+
+# Redirect all requests to index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php?url=$1 [L]
+RewriteRule ^(config/cors.php)$ $1 [L]
