@@ -10,13 +10,13 @@ class CorsMiddleware extends Middleware {
     private $ip;
 
     public function __construct() {
-        $this->allowedOrigin = constant("URL_FRONTEND");
+        $this->allowedOrigin = constant("allowedOrigin");
     }
 
     public function handle(){
         $res=$this->handleCors();
         if ($res) {
-            header("Access-Control-Allow-Origin: https://localhost:8080");
+            header("Access-Control-Allow-Origin: ".$this->ip);
             header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
             header("Access-Control-Allow-Headers: Content-Type, Authorization");
             header("Access-Control-Allow-Credentials: true");

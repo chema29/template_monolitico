@@ -12,8 +12,11 @@ error_reporting(E_ALL);
 require_once "config/config.php";
 require_once "vendor/autoload.php";
 
-// validar cros origen
-(new CorsMiddleware())->handle();
+// validar si esta activo el uso de cors
+if (constant("CORS")) {
+    // validar cros origen
+    (new CorsMiddleware())->handle();
+}
 
 // instacia de la clase App
 $app = new App();

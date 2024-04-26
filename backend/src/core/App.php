@@ -13,10 +13,13 @@ class App {
         // Validar el token antes de continuar con la lógica de los controladores
         if(!$auth->handle($_SERVER)){
             return false;
-        }
+        }  
 
         $url = $this->parseUrl();
         // la primera letra de la url se convierte a mayúscula
+        if(empty($url[0])){
+            $url[0] = "Home";
+        }
         $url[0] = ucfirst($url[0]);
         $controllerName = "{$url[0]}Controller";
         $controllerClass =  "\\Jp\\Backend\\controllers\\" . $controllerName;

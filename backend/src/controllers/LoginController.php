@@ -11,6 +11,11 @@ class LoginController extends Controller{
 
     public function authentication() {
         try{
+            if(empty($_POST['user'])|| empty($_POST["password"])){
+                echo $this->response()->error(400, "Campos requeridos");
+                return false;
+            }
+
             $user = $_POST["user"];
             $password = $_POST["password"];
             // obtener el usaurio de la database
@@ -61,25 +66,25 @@ class LoginController extends Controller{
             $intentos = 0;
             $model->updateIntentos($user, $intentos);
             // generar token
-            $token = $this->generateToken();
+            $token = $this->user()->generateToken();
             // que dure 10 minutos
             $timeMax = time() + (60 * 10);
             // generar token refresh
-            $refreshToken = $this->generateToken();
+            $refreshToken = $this->user()->generateToken();
             // que dure un mes
             $expirationTimeRefreshToken = time() + (60 * 60 * 24 * 30);
             // registrar token
             $model->registerToken($user, $token, $timeMax, $refreshToken, $expirationTimeRefreshToken);
 
             // pasar datos del usaurio a la clase User
-            $this->User()->setId($id);
-            $this->User()->setUsuario($usuario);
-            $this->User()->setNombre($nombre);
-            $this->User()->setIntentos($intentos);
-            $this->User()->setToken($token);
-            $this->User()->setTimeMaxToken($timeMax);
-            $this->User()->setRefreshToken($refreshToken);
-            $this->User()->setExpirationTimeRefreshToken($expirationTimeRefreshToken);
+            $this->user()->setId($id);
+            $this->user()->setUsuario($usuario);
+            $this->user()->setNombre($nombre);
+            $this->user()->setIntentos($intentos);
+            $this->user()->setToken($token);
+            $this->user()->setTimeMaxToken($timeMax);
+            $this->user()->setRefreshToken($refreshToken);
+            $this->user()->setExpirationTimeRefreshToken($expirationTimeRefreshToken);
 
             $this->response()->success(200, "OK", [
                 "token" => $token, 
@@ -91,27 +96,6 @@ class LoginController extends Controller{
             echo $this->response()->error(500, "Error de sistema");
         }
     
-    }
-
-    private function generateToken() {
-        $header = [
-            "typ" => "JWT",
-            "alg" => "HS256"
-        ];
-        $header = json_encode($header);
-        $header = base64_encode($header);
-        $payload = [
-            "iat" => time(),
-            "exp" => time() + (60 * 60),
-            "user" => $this->User()->getUsuario(),
-            'iduser' => $this->User()->getId(),
-        ];
-        $payload = json_encode($payload);
-        $payload = base64_encode($payload);
-        $signature = hash_hmac("sha256", "$header.$payload", "secret", true);
-        $signature = base64_encode($signature);
-        $token = "$header.$payload.$signature";
-        return $token;
     }
 
     public function validateToken() {
@@ -162,7 +146,7 @@ class LoginController extends Controller{
                 return false;
             }
 
-            $newToken = $this->generateToken();
+            $newToken = $this->user()->generateToken();
             // que dure 1 hora
             $timeMax = time() + (60 * 60);
             $res = $model->updateToken($token,$newToken,$timeMax);

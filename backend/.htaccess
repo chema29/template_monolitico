@@ -6,7 +6,7 @@ CGIPassAuth On
 Options -Indexes
 
 # Set the base directory
-RewriteBase /
+RewriteBase /template/template_monolitico/backend/
 
 # Redirect all requests to index.php
 RewriteCond %{REQUEST_FILENAME} !-f

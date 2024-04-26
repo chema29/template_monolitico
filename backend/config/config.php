@@ -1,12 +1,20 @@
 <?php
 // definir constantes de la aplicación db
 define("DB_HOST", "localhost");
-define("DB_NAME", "tu_base_datos");
-define("DB_USER", "tu_nombre_usuario");
-define("DB_PASS", "tu_password");
+define("DB_NAME", "test");
+define("DB_USER", "root");
+define("DB_PASS", "");
 
 // definir urls de la aplicación
-define("URL_BACKEND", "localhost:8080");
+define("URL_BACKEND", "http://localhost/template/template_monolitico/backend/");
 // definir un array de ip permitidas para que se conecten al backend
-define("URL_FRONTEND", ["148.72.77.95" /* e-pagos.services */]);
+define("allowedOrigin", ["http://localhost/" /* la ip de tu frontend */]);
 
+// definir confirguraciones del cors 
+define("CORS", false);
+
+// definir en que ambiente se encuentra la aplicación
+define("PRODUCTION", false);
+
+// este es el codigo secreto para generar el tokens
+define("SECRET_KEY","tu_secret");

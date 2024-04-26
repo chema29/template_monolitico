@@ -86,4 +86,25 @@ class User {
     public function getExpirationTimeRefreshToken() {
         return $this->expirationTimeRefreshToken;
     }
+
+    public function generateToken() {
+        $header = [
+            "typ" => "JWT",
+            "alg" => "HS256"
+        ];
+        $header = json_encode($header);
+        $header = base64_encode($header);
+        $payload = [
+            "iat" => time(),
+            "exp" => time() + (60 * 60),
+            "user" => $this->getUsuario(),
+            'iduser' => $this->getId(),
+        ];
+        $payload = json_encode($payload);
+        $payload = base64_encode($payload);
+        $signature = hash_hmac("sha256", "$header.$payload", "secret", true);
+        $signature = base64_encode($signature);
+        $token = "$header.$payload.$signature";
+        return $token;
+    }
 }

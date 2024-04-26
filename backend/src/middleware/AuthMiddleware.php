@@ -8,16 +8,28 @@ class AuthMiddleware extends Middleware{
     public function handle($request) {
 
         // crear excepciones para las rutas que no necesitan autenticación
-        $noAuth = [
-            "/login/authentication",
-            "/login/register",
-            "/login/refreshToken",
-        ];
-        
+
+        // validar en que ambiente se encuentra la aplicación
+        if (PRODUCTION) {
+            // si esta en producción
+            $noAuth = [
+                "/login/authentication",
+                "/login/register",
+                "/login/refreshToken",
+            ];
+        } else {
+            // si esta en desarrollo
+            $noAuth = [
+                "/template/template_monolitico/backend/login/authentication",
+                "/template/template_monolitico/backend/login/register",
+                "/template/template_monolitico/backend/login/refreshToken",
+            ];
+        }
         // validar si la ruta no necesita autenticación
         if (in_array($request["REQUEST_URI"], $noAuth)) {
+            
             // si quiere actualizar el token
-            if ($request["REQUEST_URI"] == "/login/refreshToken") {
+            if ($request["REQUEST_URI"] == $noAuth[2]) {
                 // Valida el token
                 echo $this->refreshToken($request);
                 return  false;
@@ -42,7 +54,7 @@ class AuthMiddleware extends Middleware{
     public function refreshToken($request) {
         // validar que HTTP_AUTHORIZATION exista
         if (empty($request["HTTP_AUTHORIZATION"])) {
-            echo $this->response()->error(401, "Negación de acceso. Token no proporcionado.");
+            echo $this->response()->error(401, "Negación de acceso. Token no proporcionado HTTP_AUTHORIZATION.");
             return false;
         }
         // Obtén el token del encabezado bearer
@@ -137,7 +149,7 @@ class AuthMiddleware extends Middleware{
             return false;
         }
 
-        $this->response()->success(200, "OK");
+        //$this->response()->success(200, "OK");
         return true;
     }
 }

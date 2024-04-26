@@ -16,4 +16,10 @@ class Middleware extends MyQuery
     {
         return new Response();
     }
+
+    // User
+    public function user()
+    {
+        return new User();
+    }
 }
